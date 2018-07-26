@@ -95,6 +95,20 @@ services:
       vpcbr:
         ipv4_address: 10.6.0.153
 
+  pgx:
+    build: ../pgx
+    container_name: pgx
+    links:
+      - postgres
+    volumes:
+      - "../pgx/src:/src"
+    entrypoint: /bin/bash
+    stdin_open: true
+    tty: true
+    networks:
+      vpcbr:
+        ipv4_address: 10.6.0.152
+
   nifi:
     build: ../nifi
     container_name: nifi
