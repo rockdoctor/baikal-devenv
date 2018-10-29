@@ -14,6 +14,4 @@ sudo -u hadoop -H sh -c "/usr/local/hadoop/bin/hdfs dfs -mkdir /data; /usr/local
 sudo -u hadoop -H sh -c "/usr/local/hadoop/bin/hdfs dfs -mkdir /user/hive; /usr/local/hadoop/bin/hdfs dfs -mkdir /user/hive/warehouse; /usr/local/hadoop/bin/hdfs dfs -chown hive:hadoop /user/hive; /usr/local/hadoop/bin/hdfs dfs -chmod -R 777 /user/hive"
 
 echo "export HADOOP_HOME=${HADOOP_HOME}" > /usr/local/hive/conf/hive-env.sh
-sudo -u hadoop -H sh -c "$HIVE_HOME/bin/schematool -initSchema -dbType postgres"
-sudo -u hadoop -H sh -c cd; zeppelin-daemon.sh start
-sudo -u hadoop -H sh -c "$HIVE_HOME/bin/hive --service hiveserver2"
+sudo -u hadoop -H sh -c "cd; $ZEPPELIN_HOME/bin/zeppelin-daemon.sh start"

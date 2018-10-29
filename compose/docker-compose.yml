@@ -95,6 +95,32 @@ services:
       vpcbr:
         ipv4_address: 10.6.0.153
 
+  hive-metastore:
+    build: ../hive_metastore
+    container_name: hive-metastore
+    depends_on:
+      - postgres
+    ports:
+      - "9083:9083"
+    tty: true
+    networks:
+      vpcbr:
+        ipv4_address: 10.6.0.159
+
+  hive-server2:
+    build: ../hive_server2
+    container_name: hive-server2
+    depends_on:
+      - postgres
+      - hive-metastore
+    ports:
+      - "10000:10000"
+      - "10002:10002"
+    tty: true
+    networks:
+      vpcbr:
+        ipv4_address: 10.6.0.160
+
   pgx:
     build: ../pgx
     container_name: pgx
@@ -142,8 +168,6 @@ services:
       - "8020:8020"
       - "8088:8088"
       - "9001:9001"
-      - "10000:10000"
-      - "10002:10002"
       - "50070:50070"
       - "50090:50090"
     expose:

@@ -15,20 +15,11 @@
    limitations under the License.
 -->
 <configuration>
+
   <property>
     <name>hive.metastore.uris</name>
-    <value>thrift://10.6.0.159:9083</value>
+    <value>thrift://hive-metastore:9083</value>
     <description>IP address (or fully-qualified domain name) and port of the metastore host</description>
   </property>
 
-  <property>
-    <name>hive.metastore.warehouse.dir</name>
-    <value>/user/hive/warehouse</value>
-    <description>location of default database for the warehouse</description>
-  </property>
-
-  <property>
-    <name>hive.server2.transport.mode</name>
-    <value>binary</value>
-  </property>
 </configuration>
